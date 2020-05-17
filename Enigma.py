@@ -99,15 +99,32 @@ class Rotor:
             return self.prevRotor.encodeDecode(outputIndex, forward)
         else:
             return outputIndex
+    
+class TestMyCode:
+    def defaultTest():
+        inputText = 'This is Sample'
+        encode = Enigma()
+        response  = encode.convertMessage(inputText)
+        print(f'Enigma Encode Settings:\n Rotor Position: {encode.rotorPosition}\n Rotor Order: {encode.rotorOrder}\n Plugboard setting: {encode.plugBoard}\n Reflector: UKW-B')
+        print(f'Plaintext:      {inputText}')
+        print(f'Encoded text:   {response}')
+        decode = Enigma()
+        response  = decode.convertMessage(response)
+        print(f'Enigma Decode Settings:\n Rotor Position: {decode.rotorPosition}\n Rotor Order: {decode.rotorOrder}\n Plugboard setting: {decode.plugBoard}\n Reflector: UKW-B')
+        print(f'Decoded text:   {response}')
+
+    def test1():
+        encode = Enigma()
+        inputText = input('Enter text to Encode/Decode using Enigma machine...\n')
+        response  = encode.convertMessage(inputText)
+        print(f'Enigma Encode Settings:\n Rotor Position: {encode.rotorPosition}\n Rotor Order: {encode.rotorOrder}\n Plugboard setting: {encode.plugBoard}\n Reflector: UKW-B')
+        print(f'Plaintext:      {inputText}')
+        print(f'Encoded text:   {response}')
+        decode = Enigma()
+        response  = decode.convertMessage(response)
+        print(f'Enigma Decode Settings:\n Rotor Position: {decode.rotorPosition}\n Rotor Order: {decode.rotorOrder}\n Plugboard setting: {decode.plugBoard}\n Reflector: UKW-B')
+        print(f'Decoded text:   {response}')
+
 
 if __name__ == '__main__':
-    encode = Enigma()
-    inputText = input('Enter text to Encode/Decode using Enigma machine...\n')
-    response  = encode.convertMessage(inputText)
-    print(f'Enigma Encode Settings:\n Rotor Position: {encode.rotorPosition}\n Rotor Order: {encode.rotorOrder}\n Plugboard setting: {encode.plugBoard}\n Reflector: UKW-B')
-    print(f'Plaintext:      {inputText}')
-    print(f'Encoded text:   {response}')
-    decode = Enigma()
-    response  = decode.convertMessage(response)
-    print(f'Enigma Decode Settings:\n Rotor Position: {decode.rotorPosition}\n Rotor Order: {decode.rotorOrder}\n Plugboard setting: {decode.plugBoard}\n Reflector: UKW-B')
-    print(f'Decoded text:   {response}')
+    TestMyCode.defaultTest()
